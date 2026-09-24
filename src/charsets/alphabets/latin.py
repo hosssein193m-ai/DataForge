@@ -1,0 +1,274 @@
+# -*- coding: utf-8 -*-
+"""
+Latin-based alphabets for 54+ languages.
+"""
+
+# =============================================================================
+# BASE LATIN
+# =============================================================================
+
+ASCII_LOWERCASE = "abcdefghijklmnopqrstuvwxyz"
+ASCII_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+ASCII_LETTERS   = ASCII_LOWERCASE + ASCII_UPPERCASE
+
+
+# =============================================================================
+# WESTERN EUROPEAN
+# =============================================================================
+
+GERMAN_LOWERCASE = "abcdefghijklmnopqrstuvwxyzäöüß"
+GERMAN_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜẞ"
+
+FRENCH_LOWERCASE = "abcdefghijklmnopqrstuvwxyzàâæçéèêëîïôœùûüÿ"
+FRENCH_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÀÂÆÇÉÈÊËÎÏÔŒÙÛÜŸ"
+
+SPANISH_LOWERCASE = "abcdefghijklmnopqrstuvwxyzáéíñóúü"
+SPANISH_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÑÓÚÜ"
+
+ITALIAN_LOWERCASE = "abcdefghijklmnopqrstuvwxyzàáèéìíîòóùú"
+ITALIAN_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÀÁÈÉÌÍÎÒÓÙÚ"
+
+PORTUGUESE_LOWERCASE = "abcdefghijklmnopqrstuvwxyzàáâãçéêíóôõúü"
+PORTUGUESE_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÀÁÂÃÇÉÊÍÓÔÕÚÜ"
+
+DUTCH_LOWERCASE = "abcdefghijklmnopqrstuvwxyzàáâäéèêëíìîïóòôöúùûüÿ"
+DUTCH_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÀÁÂÄÉÈÊËÍÌÎÏÓÒÔÖÚÙÛÜŸ"
+
+CATALAN_LOWERCASE = "abcdefghijklmnopqrstuvwxyzàéèíïóòúüç"
+CATALAN_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÀÉÈÍÏÓÒÚÜÇ"
+
+GALICIAN_LOWERCASE = "abcdefghijklmnopqrstuvwxyzáéíñóúü"
+GALICIAN_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÑÓÚÜ"
+
+BASQUE_LOWERCASE = "abcdefghijklmnopqrstuvwxyzñü"
+BASQUE_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÑÜ"
+
+ASTURIAN_LOWERCASE = "abcdefghijklmnopqrstuvwxyzáéíóúüñ"
+ASTURIAN_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÜÑ"
+
+ARAGONESE_LOWERCASE = "abcdefghijklmnopqrstuvwxyzáéíóúñü"
+ARAGONESE_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÑÜ"
+
+OCCITAN_LOWERCASE = "abcdefghijklmnopqrstuvwxyzàáèéíïòóúü"
+OCCITAN_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÀÁÈÉÍÏÒÓÚÜ"
+
+WALLOON_LOWERCASE = "abcdefghijklmnopqrstuvwxyzåâêîôû"
+WALLOON_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÅÂÊÎÔÛ"
+
+LADIN_LOWERCASE = "abcdefghijklmnopqrstuvwxyzàéèìóòù"
+LADIN_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÀÉÈÌÓÒÙ"
+
+MIRANDESE_LOWERCASE = "abcdefghijklmnopqrstuvwxyzáéíóú"
+MIRANDESE_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚ"
+
+WELSH_LOWERCASE = "abcdefghijklmnopqrstuvwxyzâêîôûŵŷáéíóúýäëïöüÿ"
+WELSH_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÂÊÎÔÛŴŶÁÉÍÓÚÝÄËÏÖÜŸ"
+
+IRISH_LOWERCASE = "abcdefghijklmnopqrstuvwxyzáéíóú"
+IRISH_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚ"
+
+SCOTS_GAELIC_LOWERCASE = "abcdefghijklmnopqrstuvwxyzàèìòù"
+SCOTS_GAELIC_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÀÈÌÒÙ"
+
+BRETON_LOWERCASE = "abcdefghijklmnopqrstuvwxyzâêîôûùüñ"
+BRETON_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÂÊÎÔÛÙÜÑ"
+
+MALTESE_LOWERCASE = "abcdefghijklmnopqrstuvwxyzàċèéìíîòóùúġħż"
+MALTESE_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÀĊÈÉÌÍÎÒÓÙÚĠĦŻ"
+
+LUXEMBOURGISH_LOWERCASE = "abcdefghijklmnopqrstuvwxyzäëé"
+LUXEMBOURGISH_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÄËÉ"
+
+FRIULIAN_LOWERCASE = "abcdefghijklmnopqrstuvwxyzàâçèéìîôòùû"
+FRIULIAN_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÀÂÇÈÉÌÎÔÒÙÛ"
+
+ROMSH_LOWERCASE = "abcdefghijklmnopqrstuvwxyzàèìòùéê"
+ROMSH_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÀÈÌÒÙÉÊ"
+
+CORSICAN_LOWERCASE = "abcdefghijklmnopqrstuvwxyzàèìòù"
+CORSICAN_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÀÈÌÒÙ"
+
+SARDINIAN_LOWERCASE = "abcdefghijklmnopqrstuvwxyzàèìòù"
+SARDINIAN_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÀÈÌÒÙ"
+
+SICILIAN_LOWERCASE = "abcdefghijklmnopqrstuvwxyzàèìòù"
+SICILIAN_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÀÈÌÒÙ"
+
+NEAPOLITAN_LOWERCASE = "abcdefghijklmnopqrstuvwxyzàèìòù"
+NEAPOLITAN_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÀÈÌÒÙ"
+
+
+# =============================================================================
+# NORTHERN EUROPEAN
+# =============================================================================
+
+SWEDISH_LOWERCASE = "abcdefghijklmnopqrstuvwxyzåäö"
+SWEDISH_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ"
+
+NORWEGIAN_LOWERCASE = "abcdefghijklmnopqrstuvwxyzæøå"
+NORWEGIAN_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ"
+
+DANISH_LOWERCASE = "abcdefghijklmnopqrstuvwxyzæøå"
+DANISH_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ"
+
+ICELANDIC_LOWERCASE = "abcdefghijklmnopqrstuvwxyzáðéíóúýþæö"
+ICELANDIC_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÁÐÉÍÓÚÝÞÆÖ"
+
+FAROESE_LOWERCASE = "abcdefghijklmnopqrstuvwxyzáðíóúýæø"
+FAROESE_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÁÐÍÓÚÝÆØ"
+
+FINNISH_LOWERCASE = "abcdefghijklmnopqrstuvwxyzäöåšž"
+FINNISH_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÅŠŽ"
+
+ESTONIAN_LOWERCASE = "abcdefghijklmnopqrstuvwxyzäöüõšž"
+ESTONIAN_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜÕŠŽ"
+
+
+# =============================================================================
+# CENTRAL & EASTERN EUROPEAN
+# =============================================================================
+
+POLISH_LOWERCASE = "abcdefghijklmnopqrstuvwxyząćęłńóśźż"
+POLISH_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZĄĆĘŁŃÓŚŹŻ"
+
+CZECH_LOWERCASE = "abcdefghijklmnopqrstuvwxyzáčďéěíňóřšťúůýž"
+CZECH_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ"
+
+SLOVAK_LOWERCASE = "abcdefghijklmnopqrstuvwxyzáäčďéíĺľňóôŕšťúýž"
+SLOVAK_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÁÄČĎÉÍĹĽŇÓÔŔŠŤÚÝŽ"
+
+HUNGARIAN_LOWERCASE = "abcdefghijklmnopqrstuvwxyzáéíóöőúüű"
+HUNGARIAN_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÖŐÚÜŰ"
+
+ROMANIAN_LOWERCASE = "abcdefghijklmnopqrstuvwxyzăâîșț"
+ROMANIAN_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZĂÂÎȘȚ"
+
+CROATIAN_LOWERCASE = "abcdefghijklmnopqrstuvwxyzćčđšž"
+CROATIAN_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZĆČĐŠŽ"
+
+SLOVENE_LOWERCASE = "abcdefghijklmnopqrstuvwxyzčšž"
+SLOVENE_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZČŠŽ"
+
+BOSNIAN_LOWERCASE = "abcdefghijklmnopqrstuvwxyzćčđšž"
+BOSNIAN_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZĆČĐŠŽ"
+
+SERBIAN_LATIN_LOWERCASE = "abcdefghijklmnopqrstuvwxyzćčđšž"
+SERBIAN_LATIN_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZĆČĐŠŽ"
+
+MONTENEGRIN_LATIN_LOWERCASE = "abcdefghijklmnopqrstuvwxyzćčđšž"
+MONTENEGRIN_LATIN_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZĆČĐŠŽ"
+
+MACEDONIAN_LATIN_LOWERCASE = "abcdefghijklmnopqrstuvwxyzčćđšžǵ"
+MACEDONIAN_LATIN_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZČĆĐŠŽǴ"
+
+LITHUANIAN_LOWERCASE = "abcdefghijklmnopqrstuvwxyząčęėįšųūž"
+LITHUANIAN_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZĄČĘĖĮŠŲŪŽ"
+
+LATVIAN_LOWERCASE = "abcdefghijklmnopqrstuvwxyzāčēģīķļņōŗšūž"
+LATVIAN_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZĀČĒĢĪĶĻŅŌŖŠŪŽ"
+
+ALBANIAN_LOWERCASE = "abcdefghijklmnopqrstuvwxyzëç"
+ALBANIAN_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZËÇ"
+
+
+# =============================================================================
+# TURKIC (LATIN)
+# =============================================================================
+
+TURKISH_LOWERCASE = "abcdefghijklmnopqrstuvwxyzçğıiöşü"  # note: 'ı' before 'i'
+TURKISH_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÇĞIİÖŞÜ"  # 'I' pairs with 'ı'
+
+AZERBAIJANI_LOWERCASE = "abcdefghijklmnopqrstuvwxyzçəğıiöşü"
+AZERBAIJANI_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÇƏĞIİÖŞÜ"
+
+TURKMEN_LOWERCASE = "abcdefghijklmnopqrstuvwxyzáçýöşüň"
+TURKMEN_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÁÇÝÖŞÜŇ"
+
+CRIMEAN_TATAR_LOWERCASE = "abcdefghijklmnopqrstuvwxyzâçğıiñöşü"
+CRIMEAN_TATAR_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZÂÇĞIİÑÖŞÜ"
+
+
+# =============================================================================
+# OTHER
+# =============================================================================
+
+VIETNAMESE_LOWERCASE = (
+    "abcdefghijklmnopqrstuvwxyz"
+    "àáạảãâầấậẩẫăằắặẳẵ"
+    "èéẹẻẽêềếệểễ"
+    "ìíịỉĩ"
+    "òóọỏõôồốộổỗơờớợởỡ"
+    "ùúụủũưừứựửữ"
+    "ỳýỵỷỹ"
+    "đ"
+)
+VIETNAMESE_UPPERCASE = (
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    "ÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴ"
+    "ÈÉẸẺẼÊỀẾỆỂỄ"
+    "ÌÍỊỈĨ"
+    "ÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠ"
+    "ÙÚỤỦŨƯỪỨỰỬỮ"
+    "ỲÝỴỶỸ"
+    "Đ"
+)
+
+ESPERANTO_LOWERCASE = "abcdefghijklmnopqrstuvwxyzĉĝĥĵŝŭ"
+ESPERANTO_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZĈĜĤĴŜŬ"
+
+
+# =============================================================================
+# AGGREGATED
+# =============================================================================
+
+_LATIN_LOWER_SOURCES = [
+    ASCII_LOWERCASE, GERMAN_LOWERCASE, FRENCH_LOWERCASE, SPANISH_LOWERCASE,
+    ITALIAN_LOWERCASE, PORTUGUESE_LOWERCASE, DUTCH_LOWERCASE,
+    ROMANIAN_LOWERCASE, POLISH_LOWERCASE, CZECH_LOWERCASE,
+    SLOVAK_LOWERCASE, HUNGARIAN_LOWERCASE, CROATIAN_LOWERCASE,
+    SLOVENE_LOWERCASE, LITHUANIAN_LOWERCASE, LATVIAN_LOWERCASE,
+    ESTONIAN_LOWERCASE, FINNISH_LOWERCASE, SWEDISH_LOWERCASE,
+    NORWEGIAN_LOWERCASE, DANISH_LOWERCASE, ICELANDIC_LOWERCASE,
+    FAROESE_LOWERCASE, TURKISH_LOWERCASE, AZERBAIJANI_LOWERCASE,
+    VIETNAMESE_LOWERCASE, CATALAN_LOWERCASE, WELSH_LOWERCASE,
+    MALTESE_LOWERCASE, IRISH_LOWERCASE, SCOTS_GAELIC_LOWERCASE,
+    BASQUE_LOWERCASE, GALICIAN_LOWERCASE, ESPERANTO_LOWERCASE,
+    ALBANIAN_LOWERCASE, BOSNIAN_LOWERCASE, SERBIAN_LATIN_LOWERCASE,
+    MONTENEGRIN_LATIN_LOWERCASE, MACEDONIAN_LATIN_LOWERCASE,
+    TURKMEN_LOWERCASE, CRIMEAN_TATAR_LOWERCASE, BRETON_LOWERCASE,
+    FRIULIAN_LOWERCASE, ROMSH_LOWERCASE, LUXEMBOURGISH_LOWERCASE,
+    CORSICAN_LOWERCASE, SARDINIAN_LOWERCASE, SICILIAN_LOWERCASE,
+    NEAPOLITAN_LOWERCASE, ASTURIAN_LOWERCASE, ARAGONESE_LOWERCASE,
+    OCCITAN_LOWERCASE, WALLOON_LOWERCASE, LADIN_LOWERCASE,
+    MIRANDESE_LOWERCASE,
+]
+
+_LATIN_UPPER_SOURCES = [
+    ASCII_UPPERCASE, GERMAN_UPPERCASE, FRENCH_UPPERCASE, SPANISH_UPPERCASE,
+    ITALIAN_UPPERCASE, PORTUGUESE_UPPERCASE, DUTCH_UPPERCASE,
+    ROMANIAN_UPPERCASE, POLISH_UPPERCASE, CZECH_UPPERCASE,
+    SLOVAK_UPPERCASE, HUNGARIAN_UPPERCASE, CROATIAN_UPPERCASE,
+    SLOVENE_UPPERCASE, LITHUANIAN_UPPERCASE, LATVIAN_UPPERCASE,
+    ESTONIAN_UPPERCASE, FINNISH_UPPERCASE, SWEDISH_UPPERCASE,
+    NORWEGIAN_UPPERCASE, DANISH_UPPERCASE, ICELANDIC_UPPERCASE,
+    FAROESE_UPPERCASE, TURKISH_UPPERCASE, AZERBAIJANI_UPPERCASE,
+    VIETNAMESE_UPPERCASE, CATALAN_UPPERCASE, WELSH_UPPERCASE,
+    MALTESE_UPPERCASE, IRISH_UPPERCASE, SCOTS_GAELIC_UPPERCASE,
+    BASQUE_UPPERCASE, GALICIAN_UPPERCASE, ESPERANTO_UPPERCASE,
+    ALBANIAN_UPPERCASE, BOSNIAN_UPPERCASE, SERBIAN_LATIN_UPPERCASE,
+    MONTENEGRIN_LATIN_UPPERCASE, MACEDONIAN_LATIN_UPPERCASE,
+    TURKMEN_UPPERCASE, CRIMEAN_TATAR_UPPERCASE, BRETON_UPPERCASE,
+    FRIULIAN_UPPERCASE, ROMSH_UPPERCASE, LUXEMBOURGISH_UPPERCASE,
+    CORSICAN_UPPERCASE, SARDINIAN_UPPERCASE, SICILIAN_UPPERCASE,
+    NEAPOLITAN_UPPERCASE, ASTURIAN_UPPERCASE, ARAGONESE_UPPERCASE,
+    OCCITAN_UPPERCASE, WALLOON_UPPERCASE, LADIN_UPPERCASE,
+    MIRANDESE_UPPERCASE,
+]
+
+# Deduplicate while preserving order
+ALL_LATIN_LOWERCASE = "".join(dict.fromkeys("".join(_LATIN_LOWER_SOURCES)))
+ALL_LATIN_UPPERCASE = "".join(dict.fromkeys("".join(_LATIN_UPPER_SOURCES)))
+ALL_LATIN_LETTERS   = ALL_LATIN_LOWERCASE + ALL_LATIN_UPPERCASE
+
+
+__all__ = [name for name in dir() if name.isupper() and not name.startswith("_")]
