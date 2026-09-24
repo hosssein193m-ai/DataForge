@@ -1,10 +1,9 @@
 # 📚 Data & Utility Packages
 
-A collection of **dependency-free Python packages** for character data,
-security data, and Iran-specific static data.
+A collection of **dependency-free Python packages** for ASCII/binary
+conversion, character data, security data, and Iran-specific static data.
 
 > **Data only. No logic. No dependencies.**
-> **فقط داده. بدون منطق. بدون وابستگی.**
 
 [![Python](https://img.shields.io/badge/python-3.8%2B-blue)]()
 [![License](https://img.shields.io/badge/license-MIT-green)]()
@@ -22,9 +21,10 @@ security data, and Iran-specific static data.
 5. [Installation](#-installation)
 6. [Quick Start](#-quick-start)
 7. [Package Details](#-package-details)
-   - 7.1 [charsets](#71-charsets)
-   - 7.2 [security](#72-security)
-   - 7.3 [iran](#73-iran)
+   - 7.1 [ascii_binary](#71-ascii_binary)
+   - 7.2 [charsets](#72-charsets)
+   - 7.3 [security](#73-security)
+   - 7.4 [iran](#74-iran)
 8. [Design Philosophy](#-design-philosophy)
 9. [Documentation](#-documentation)
 10. [File Inventory](#-file-inventory)
@@ -39,23 +39,20 @@ security data, and Iran-specific static data.
 
 ## 🌟 Overview
 
-This project provides three self-contained Python packages that serve as
-**pure data layers** for common text and system needs:
+This project provides four self-contained Python packages that serve as
+**pure data layers and simple utilities** for common text and system needs:
 
+- **`ascii_binary`** — ASCII ↔ binary conversion, bitwise operations, and
+  binary art (the *original* package that started it all).
 - **`charsets`** — every character set you'll ever need: Latin, Cyrillic,
   Arabic, South Asian, East Asian, symbols, emoji, ANSI colors.
 - **`security`** — Unix file permissions, risk levels, and file types.
 - **`iran`** — Persian alphabet, digits, keyboards, calendar, provinces,
   names, and more.
 
-All three packages share a single guiding principle: **static data only,
-no logic**. They contain `dict` / `list` / `str` / `Enum` definitions
-and small lookup helpers — nothing else. No file I/O, no network access,
-no external dependencies.
-
-**Why?** Because a database should be a database. When you need analysis
-or transformation, you build it *on top* of these datasets in your own
-code, on your own terms, with your own dependencies.
+All four packages share a single guiding principle: **static data and
+pure functions only** — no file I/O, no network access, no external
+dependencies.
 
 ---
 
@@ -63,6 +60,7 @@ code, on your own terms, with your own dependencies.
 
 | Package | Topic | Language | Files | Help |
 |---------|-------|----------|-------|------|
+| **`ascii_binary`** | ASCII ↔ binary, bitwise ops, binary art | English | 6 | [`ascii_binary/HELP.md`](ascii_binary/HELP.md) |
 | **`charsets`** | Character sets, alphabets, digits, symbols, ANSI colors | English | 19 | [`charsets/HELP.md`](charsets/HELP.md) |
 | **`security`** | File permissions, risk levels, file types | English | 4 | [`security/HELP.md`](security/HELP.md) |
 | **`iran`** | Persian letters, digits, keyboards, calendar, provinces | فارسی | 11 | [`iran/HELP.md`](iran/HELP.md) |
@@ -73,18 +71,18 @@ code, on your own terms, with your own dependencies.
 
 ## ✨ Features
 
-- 🗃 **Data-only design** — no logic, no I/O, no side effects
+- 🔢 **ASCII ↔ binary** — encode/decode text, decimals, hex, octal
+- 🎨 **Binary art** — render text as blocks of 0/1
+- 🔗 **Bitwise operations** — `XOR`, `AND`, `OR`, `NOT` on binary strings
+- 🗃 **Data-only design** — no I/O, no side effects (for `charsets`, `security`, `iran`)
 - 🚫 **Zero dependencies** — Python standard library only
 - 🌍 **Wide coverage** — 92 languages, 30+ digit systems, 100+ character groups
 - 🎨 **ANSI colors** — terminal styles, 256-color, true-color helpers
 - 🔒 **Security data** — permission masks, risk levels, file types
 - 🇮🇷 **Iran data** — Persian alphabet, digits, keyboards, calendar, provinces
 - 📚 **Complete docs** — a `HELP.md` per package
-- 🔌 **Copy-paste friendly** — every package works standalone
-- ⚡ **Fast** — all tables computed at import time
-- 🧪 **Testable** — pure lookups, trivial to unit test
-- 🌐 **Portable** — runs on any OS, including non-POSIX systems
-- 🧩 **Composable** — build your own logic on top
+- ⚡ **Fast** — tables computed at import time
+- 🧪 **Testable** — pure lookups and pure functions
 
 ---
 
@@ -92,6 +90,13 @@ code, on your own terms, with your own dependencies.
 
 ```
 project/
+│
+├── ascii_binary/                 ← ASCII ↔ binary conversion
+│   ├── __init__.py
+│   ├── tables.py                 ← char ↔ binary, dec, hex, oct
+│   ├── converters.py             ← conversion functions
+│   ├── utils.py                  ← validation, bitwise, art
+│   └── HELP.md
 │
 ├── charsets/                     ← Character sets package
 │   ├── __init__.py
@@ -127,13 +132,6 @@ project/
 │   ├── letters.py
 │   ├── charset.py
 │   ├── keyboards.py
-│   ├── calendar.py
-│   ├── provinces.py
-│   ├── names.py
-│   ├── holidays.py
-│   ├── plates.py
-│   ├── banking.py
-│   ├── telecom.py
 │   └── HELP.md
 │
 ├── README.md                     ← This file
@@ -148,13 +146,13 @@ There is no official installation. Just copy the folders you need next
 to your project:
 
 ```bash
-cp -r charsets/ security/ iran/ /path/to/your_project/
+cp -r ascii_binary/ charsets/ security/ iran/ /path/to/your_project/
 ```
 
 Or, if you only need one package:
 
 ```bash
-cp -r iran/ /path/to/your_project/
+cp -r ascii_binary/ /path/to/your_project/
 ```
 
 ### Requirements
@@ -178,6 +176,33 @@ pip install -e .
 
 ## ⚡ Quick Start
 
+### `ascii_binary`
+
+```python
+from ascii_binary import (
+    text_to_binary, binary_to_text,
+    char_info, XOR, AND, OR, NOT,
+    text_to_utf8_binary, binary_art,
+    count_bits, describe_permission if False else None,
+)
+
+# Encode / decode
+print(text_to_binary("Hi"))          # '01001000 01101001'
+print(binary_to_text("01001000 01101001"))  # 'Hi'
+
+# Character info
+print(char_info("A")["bin"])         # '01000001'
+
+# Bitwise
+print(XOR("1010", "0110"))           # '1100'
+
+# UTF-8 (Persian, emoji, ...)
+print(text_to_utf8_binary("س"))      # '11011000 10110011'
+
+# Binary art
+print(binary_art("A"))               # '·█·····█'
+```
+
 ### `charsets`
 
 ```python
@@ -189,7 +214,6 @@ from charsets import (
 )
 
 print(TOTAL_LANGUAGES_COVERED)              # 92
-print(len(ALL_LATIN_LETTERS))               # ~120 unique letters
 print("س" in ALL_ARABIC_SCRIPTS)            # True
 print(colorize("Hello", RED, BOLD))         # bold red text
 ```
@@ -208,7 +232,6 @@ print(describe_permission("rw-------"))
 # 'Private file. Only the owner can read or write.'
 print(get_safety_note("rwxrwxrwx"))
 # 'Never use 777 in production. Prefer 755 or 750.'
-print(oct(Permission.USER_RWX))             # '0o755'
 ```
 
 ### `iran`
@@ -224,14 +247,52 @@ print(len(PERSIAN_LETTERS))                 # 32
 print(PERSIAN_DIGITS_MAP["۵"])              # '5'
 print(STANDARD_KEYBOARD["q"])               # 'ض'
 print("چ" in PERSIAN_CHARSET)               # True
-print(f"می{ZWNJ}روم")                       # with ZWNJ
 ```
 
 ---
 
 ## 📘 Package Details
 
-### 7.1 `charsets`
+### 7.1 `ascii_binary`
+
+**Purpose:** Convert between text and binary, inspect ASCII characters,
+perform bitwise operations, and render binary art.
+
+**Contents:**
+
+| Module | Contents |
+|--------|----------|
+| `tables` | `ASCII_TO_BINARY`, `BINARY_TO_ASCII`, `DEC_TO_BINARY`, `BINARY_TO_DEC`, `HEX_TO_BINARY`, `BINARY_TO_HEX`, `OCT_TO_BINARY`, `BINARY_TO_OCT`, `ASCII_INFO` |
+| `converters` | `char_to_binary`, `binary_to_char`, `text_to_binary`, `binary_to_text`, `dec_to_binary`, `binary_to_dec`, `hex_to_binary`, `binary_to_hex`, `oct_to_binary`, `binary_to_oct`, `text_to_bytes`, `bytes_to_text`, `text_to_utf8_binary`, `utf8_binary_to_text`, `char_info`, `char_info_from_binary`, `char_info_from_dec`, `to_upper_binary`, `to_lower_binary` |
+| `utils` | `is_valid_binary`, `normalize_binary`, `count_bits`, `binary_length`, `split_binary`, `is_control`, `is_printable`, `is_extended`, `is_ascii`, `XOR`, `AND`, `OR`, `NOT`, `binary_art`, `ascii_art_from_text` |
+| `demo` | Runnable demo script (`python -m ascii_binary.demo`) |
+
+**Coverage:**
+
+| Category | Count |
+|----------|-------|
+| ASCII characters | 256 (full Windows-1252) |
+| Conversion functions | 20+ |
+| Bitwise operations | 4 |
+| Utility functions | 10+ |
+| Art renderers | 2 |
+
+**Example use cases:**
+
+- Encode any text as binary (0/1)
+- Decode binary back to text
+- Convert between decimal, hex, octal, and binary
+- Inspect a character's code point, HTML entity, category
+- Perform bitwise XOR for simple ciphers
+- Render text as binary art
+- Count bits for parity / Hamming weight
+- Encode non-Latin scripts using UTF-8
+
+📖 Full docs: [`ascii_binary/HELP.md`](ascii_binary/HELP.md)
+
+---
+
+### 7.2 `charsets`
 
 **Purpose:** Every character set you might need — from ASCII to emoji.
 
@@ -250,7 +311,7 @@ print(f"می{ZWNJ}روم")                       # with ZWNJ
 | Module | Contents |
 |--------|----------|
 | `whitespace` | `WHITESPACE`, `PUNCTUATION` families |
-| `digits` | 30+ digit scripts (DEC, HEX, Persian, Devanagari, ...) |
+| `digits` | 30+ digit scripts |
 | `symbols` | Currency, math, arrows, music, emoji |
 | `printable` | Combined `PRINTABLE_*` sets per script |
 | `functional` | `URL_SAFE`, `BASE64`, `EMAIL`, `IDENTIFIER`, ... |
@@ -266,21 +327,11 @@ print(f"می{ZWNJ}روم")                       # with ZWNJ
 | `alphabets/east_asian` | Chinese, Japanese, Korean |
 | `alphabets/other_scripts` | Greek, Hebrew, Armenian, Georgian, Amharic, ... |
 
-**Example use cases:**
-
-- Sanitize user input by stripping zero-width characters
-- Detect the script of a string
-- Filter text to only Latin letters
-- Build a URL-safe slug from any alphabet
-- Render colored terminal output
-- Validate email / filename / identifier characters
-- Generate random characters from any script
-
 📖 Full docs: [`charsets/HELP.md`](charsets/HELP.md)
 
 ---
 
-### 7.2 `security`
+### 7.3 `security`
 
 **Purpose:** Static data about Unix file permissions, risk levels, and
 file types.
@@ -297,19 +348,11 @@ file types.
 | Enums | `FileType`, `RiskLevel`, `Permission` |
 | Helpers | `get_risk`, `describe_permission`, `is_dangerous`, `get_safety_note`, ... |
 
-**Example use cases:**
-
-- Audit a directory and warn about world-writable files
-- Detect setuid / setgid binaries
-- Build a security report
-- Sanitize permission strings from `ls -l` output
-- Validate permission strings before applying them
-
 📖 Full docs: [`security/HELP.md`](security/HELP.md)
 
 ---
 
-### 7.3 `iran`
+### 7.4 `iran`
 
 **Purpose:** Static data about Iran — letters, digits, keyboards,
 calendar, provinces, and more.
@@ -329,24 +372,15 @@ calendar, provinces, and more.
 | `banking` | Bank codes, IBAN prefix, card prefixes | ⏸ Optional |
 | `telecom` | Mobile prefixes, landline codes, operators | ⏸ Optional |
 
-**Example use cases:**
-
-- Normalize Persian text (remove diacritics, invisible chars)
-- Convert Persian digits to Latin digits
-- Convert English keyboard input to Persian (or vice versa)
-- Validate Persian filenames / URLs
-- Look up a province's capital or phone code
-- Check if a name is a common Persian name
-
 📖 Full docs: [`iran/HELP.md`](iran/HELP.md)
 
 ---
 
 ## 🎯 Design Philosophy
 
-All three packages follow the same principle:
+All four packages follow the same principle:
 
-> **Data, not logic.**
+> **Data and pure functions only.**
 
 Every file contains only:
 
@@ -354,9 +388,9 @@ Every file contains only:
 - `list` constants (`PROVINCES = [...]`)
 - `dict` constants (`PERSIAN_DIGITS_MAP = {...}`)
 - `Enum` classes (`FileType`, `RiskLevel`)
+- **Pure functions** (only in `ascii_binary`)
 
-Nothing else. No functions that do I/O, no analysis, no parsing, no
-validation logic beyond trivial lookups.
+Nothing else. No I/O, no parsing, no side effects.
 
 ### Why?
 
@@ -365,38 +399,25 @@ validation logic beyond trivial lookups.
 | ⚡ **Fast** | No syscalls at import time |
 | 🔒 **Safe** | No accidental file or network access |
 | 🌐 **Portable** | Works on any OS, even sandboxes |
-| 🧪 **Testable** | Pure lookups, trivial to unit test |
+| 🧪 **Testable** | Pure lookups and pure functions |
 | 🧩 **Composable** | Build your own logic on top |
 | 📦 **Tiny** | No dependency tree to audit |
 | 📖 **Readable** | The data *is* the documentation |
 
-### Helper Functions
+### Why is `ascii_binary` allowed to have functions?
 
-Each package includes a handful of **pure lookup helpers** that make the
-data easier to use:
-
-```python
-# security/helpers.py
-def get_risk(symbolic: str) -> int:
-    return PERMISSION_TO_RISK.get(symbolic, 1)
-```
-
-These are the *only* functions allowed. They:
-- Take data as input
-- Return data as output
-- Have no side effects
-- Never touch the filesystem
+Because ASCII ↔ binary conversion is a **pure transformation**, not
+analysis. `text_to_binary("Hi")` has no side effects, no I/O, and always
+returns the same output for the same input. This is the only kind of
+function allowed in the project.
 
 ### What Doesn't Belong Here
 
 - ❌ `os.stat()` calls
 - ❌ File reading / writing
 - ❌ Network requests
-- ❌ Regex-based parsing
-- ❌ Class hierarchies beyond `Enum`
 - ❌ State, caches, singletons
-
-If you need these, build them **on top** of the packages.
+- ❌ Class hierarchies beyond `Enum`
 
 ---
 
@@ -405,17 +426,18 @@ If you need these, build them **on top** of the packages.
 | File | Language | Contents |
 |------|----------|----------|
 | [`README.md`](README.md) | English | This file — overview, install, examples |
-| [`HELP.md`](HELP.md) | فارسی | Full project guide, package summary |
-| [`charsets/HELP.md`](charsets/HELP.md) | English | Complete charsets documentation |
-| [`security/HELP.md`](security/HELP.md) | English | Complete security documentation |
-| [`iran/HELP.md`](iran/HELP.md) | فارسی | Complete iran documentation |
+| [`HELP.md`](HELP.md) | English | Full project guide, package summary |
+| [`ascii_binary/HELP.md`](ascii_binary/HELP.md) | English | Complete ascii_binary docs |
+| [`charsets/HELP.md`](charsets/HELP.md) | English | Complete charsets docs |
+| [`security/HELP.md`](security/HELP.md) | English | Complete security docs |
+| [`iran/HELP.md`](iran/HELP.md) | فارسی | Complete iran docs |
 
 Each package's `HELP.md` includes:
 
 - Design philosophy
 - Installation
 - Module layout
-- API reference (every constant and helper)
+- API reference (every constant, function, and helper)
 - Usage examples
 - Notes and limitations
 - References
@@ -424,6 +446,20 @@ Each package's `HELP.md` includes:
 ---
 
 ## 📋 File Inventory
+
+<details>
+<summary><b>ascii_binary</b> — 6 files</summary>
+
+| File | Contents |
+|------|----------|
+| `__init__.py` | Re-exports everything |
+| `tables.py` | All lookup dictionaries |
+| `converters.py` | 20+ conversion functions |
+| `utils.py` | Validation, classification, bitwise, art |
+| `demo.py` | Runnable demo |
+| `HELP.md` | Full documentation |
+
+</details>
 
 <details>
 <summary><b>charsets</b> — 19 files</summary>
@@ -453,7 +489,7 @@ Each package's `HELP.md` includes:
 </details>
 
 <details>
-<summary><b>security</b> — 4 files</summary>
+<summary><b>security</b> — 5 files</summary>
 
 | File | Contents |
 |------|----------|
@@ -466,7 +502,7 @@ Each package's `HELP.md` includes:
 </details>
 
 <details>
-<summary><b>iran</b> — 11 files</summary>
+<summary><b>iran</b> — 12 files</summary>
 
 | File | Contents | Status |
 |------|----------|--------|
@@ -489,44 +525,45 @@ Each package's `HELP.md` includes:
 
 ## 🎯 Use Cases
 
+### ASCII/Binary Conversion
+
+```python
+from ascii_binary import text_to_binary, binary_to_text, XOR
+
+# Simple encode/decode
+enc = text_to_binary("Secret")
+dec = binary_to_text(enc)
+
+# XOR cipher
+key = "10101010"
+data = "11001100"
+cipher = XOR(data, key)
+plain  = XOR(cipher, key)
+```
+
 ### Text Processing
 
 ```python
-from charsets import ALL_LATIN_LETTERS, ZERO_WIDTH_CHARS if False else None
+from charsets import ALL_LATIN_LETTERS
 from iran import PERSIAN_DIACRITICS_ALL, PERSIAN_INVISIBLE
 
 def clean_text(text):
-    # Remove zero-width and diacritics
     for ch in PERSIAN_INVISIBLE + PERSIAN_DIACRITICS_ALL:
         text = text.replace(ch, "")
     return text
-```
-
-### Input Validation
-
-```python
-from charsets import URL_SAFE_CHARS
-from iran import PERSIAN_URL_SAFE
-
-def is_safe_slug(slug: str) -> bool:
-    return all(ch in PERSIAN_URL_SAFE for ch in slug)
 ```
 
 ### Security Audit
 
 ```python
 import os, stat
-from security import get_risk, describe_permission, Permission
+from security import get_risk
 
 def audit(path):
     st = os.stat(path)
     mode = stat.S_IMODE(st.st_mode)
     symbolic = oct(mode)[2:]
-    return {
-        "path": path,
-        "octal": oct(mode),
-        "risk": get_risk(symbolic),
-    }
+    return {"path": path, "octal": oct(mode), "risk": get_risk(symbolic)}
 ```
 
 ### Terminal Styling
@@ -549,6 +586,16 @@ def en_to_fa(text: str) -> str:
 print(en_to_fa("hello"))   # 'هثممخ'
 ```
 
+### Binary Art
+
+```python
+from ascii_binary import binary_art
+
+print(binary_art("Hi"))
+# ·█··█···
+# ·██·█·██
+```
+
 ---
 
 ## ⚡ Performance
@@ -560,6 +607,7 @@ afterwards. There are no runtime allocations beyond what you request.
 
 | Package | Approximate Import Time |
 |---------|-------------------------|
+| `ascii_binary` | ~5 ms |
 | `charsets` | ~15 ms |
 | `security` | ~2 ms |
 | `iran` | ~5 ms |
@@ -570,15 +618,10 @@ afterwards. There are no runtime allocations beyond what you request.
 
 | Package | Approximate Memory |
 |---------|--------------------|
+| `ascii_binary` | ~100 KB |
 | `charsets` | ~2 MB |
 | `security` | ~200 KB |
 | `iran` | ~500 KB |
-
-If you need lower memory, import only the submodules you need:
-
-```python
-from charsets.alphabets.latin import ALL_LATIN_LETTERS  # instead of `from charsets import *`
-```
 
 ---
 
@@ -600,12 +643,6 @@ from charsets.alphabets.latin import ALL_LATIN_LETTERS  # instead of `from chars
 | Windows | ✅ (ANSI colors auto-enabled) |
 | BSD | ✅ |
 
-| Encoding | Notes |
-|----------|-------|
-| UTF-8 | Fully supported |
-| UTF-16 | Fully supported |
-| Latin-1 | Partial (charsets has `LATIN1_COMPATIBLE`) |
-
 ---
 
 ## 🤝 Contributing
@@ -617,24 +654,15 @@ from charsets.alphabets.latin import ALL_LATIN_LETTERS  # instead of `from chars
 3. If it's a new top-level constant, add it to `__all__`
 4. Done — no registration, no `__init__.py` edits needed
 
-### Adding a New Module
+### Adding a Function
 
-1. Create `iran/newmodule.py`
-2. Define your data constants
-3. Add `from .newmodule import *` to `iran/__init__.py`
-4. Add `newmodule` to the `try/except` block (if optional)
-5. Update `HELP.md`
+For `ascii_binary`, you may add **pure functions**:
 
-### Adding a Helper Function
-
-Only if it is **pure** and **trivial**:
-
-```python
-def get_something(key: str) -> Optional[str]:
-    return SOME_DICT.get(key)
-```
-
-No I/O, no parsing, no side effects.
+- No I/O
+- No state
+- Deterministic output
+- Type hints
+- Docstring with examples
 
 ### Style Guidelines
 
@@ -650,10 +678,16 @@ No I/O, no parsing, no side effects.
 
 ## ❓ FAQ
 
-### Why data-only?
+### Why data-only (mostly)?
 
 Because databases should be reusable, testable, and free of hidden
 dependencies. Logic belongs in the consumer's code.
+
+### Why does `ascii_binary` have functions?
+
+Because ASCII ↔ binary conversion is a pure transformation. These
+functions are the *only* logic allowed — pure, side-effect-free, and
+deterministic.
 
 ### Why no external dependencies?
 
@@ -664,23 +698,16 @@ To make every package copy-pasteable, sandbox-friendly, and auditable.
 Yes. Import submodules directly:
 
 ```python
-from iran.letters import PERSIAN_LETTERS     # only this module
-from charsets.colors import RED, colorize    # only colors
+from ascii_binary.converters import text_to_binary
+from iran.letters import PERSIAN_LETTERS
+from charsets.colors import RED, colorize
 from security.data import DANGEROUS_PERMISSIONS
 ```
 
 ### Why isn't `analyze_path()` in `security`?
 
 Because it touches the filesystem. It's a consumer's job, not a data
-layer's. See [`security/HELP.md §8`](security/HELP.md#8-notes).
-
-### How do I add a new language to `charsets`?
-
-1. Add a new file under `charsets/alphabets/`
-2. Define `LOWERCASE` / `UPPERCASE` constants
-3. Import in `alphabets/__init__.py`
-4. Add to `ALL_LATIN_LETTERS` if applicable
-5. Update `HELP.md`
+layer's.
 
 ### What about missing constants?
 
@@ -696,11 +723,10 @@ version; new data bumps the minor; bug fixes bump the patch.
 
 Yes. MIT license.
 
-### Why is the `iran` documentation in Persian but the others in English?
+### Why are some packages documented in Persian?
 
-Because `iran` is aimed at Persian-speaking developers, while `charsets`
-and `security` are general-purpose. If you want an English version of
-`iran/HELP.md`, open an issue.
+Because `iran` is aimed at Persian-speaking developers. `ascii_binary`,
+`charsets`, and `security` are general-purpose and documented in English.
 
 ---
 
@@ -722,11 +748,7 @@ all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
 
 ---
 
